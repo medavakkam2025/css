@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Flexbox Interview Questions Presentation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #121212;
+    color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .presentation {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+  }
+  .slide {
+    width: 100%;
+    max-width: 700px;
+    background: #1f1f1f;
+    border-radius: 12px;
+    padding: 40px 50px 50px 50px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    display: none;
+    flex-direction: column;
+  }
+  .slide.active {
+    display: flex;
+  }
+  h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fefefe;
+    text-shadow: 0 0 6px #4caf50;
+  }
+  h1 {
+    font-size: 2.6rem;
+    border-bottom: 3px solid #4caf50;
+    padding-bottom: 10px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    color: #b5d6a6;
+  }
+  ul {
+    padding-left: 1.4rem;
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+  code {
+    background: #333;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #81c784;
+  }
+  pre {
+    background: #333;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    color: #a5d6a7;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    margin: 10px 0 25px 0;
+  }
+  .controls {
+    background: #222;
+    padding: 15px 30px;
+    text-align: center;
+    user-select: none;
+  }
+  button {
+    cursor: pointer;
+    background: #4caf50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  button:hover:not(:disabled) {
+    background: #66bb6a;
+  }
+  button:disabled {
+    background: #555;
+    cursor: default;
+  }
+  @media (max-width: 600px) {
+    .slide {
+      padding: 25px 20px 30px 20px;
+      max-width: 95vw;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+    }
+    ul {
+      font-size: 1rem;
+    }
+    pre {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="presentation" role="main" aria-label="Flexbox Interview Questions Presentation">
+    <section class="slide active" aria-live="polite" aria-atomic="true">
+      <h1>Understanding Flexbox in CSS</h1>
+      <h3>Key Concepts and Interview Questions</h3>
+      <p><em>Presented by You</em></p>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2>What is Flexbox?</h2>
+      <ul>
+        <li>Flexbox (Flexible Box Layout) is a CSS layout module.</li>
+        <li>Arranges items in a one-dimensional space (horizontally or vertically).</li>
+        <li>Helps in aligning, distributing, and spacing elements dynamically.</li>
+      </ul>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2>Main Components of Flexbox</h2>
+      <ul>
+        <li><strong>Flex Container:</strong> Parent element with <code>display: flex</code> or <code>display: inline-flex</code>.</li>
+        <li><strong>Flex Items:</strong> Direct children of a flex container.</li>
+      </ul>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2>Making an Element a Flex Container</h2>
+      <pre><code>display: flex;</code></pre>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>justify-content</code> vs. <code>align-items</code></h2>
+      <ul>
+        <li><code>justify-content</code>: Aligns items along the main axis (horizontal by default).</li>
+        <li><code>align-items</code>: Aligns items along the cross axis (vertical by default).</li>
+      </ul>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>flex-direction</code></h2>
+      <p>Defines the direction of the main axis.</p>
+      <ul>
+        <li><code>row</code> (default): left to right</li>
+        <li><code>row-reverse</code>: right to left</li>
+        <li><code>column</code>: top to bottom</li>
+        <li><code>column-reverse</code>: bottom to top</li>
+      </ul>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>flex-wrap</code></h2>
+      <p>Controls whether flex items wrap onto multiple lines.</p>
+      <ul>
+        <li><code>nowrap</code> (default): All items in one line.</li>
+        <li><code>wrap</code>: Items wrap to the next line if needed.</li>
+        <li><code>wrap-reverse</code>: Items wrap in reverse direction.</li>
+      </ul>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>order</code> Property</h2>
+      <p>Defines order of flex items in the container regardless of HTML source.</p>
+      <p>Items with lower values appear first.</p>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>flex</code> Shorthand Property</h2>
+      <p>A shorthand for <code>flex-grow</code> <code>flex-shrink</code> <code>flex-basis</code>.</p>
+      <pre><code>flex: 1 0 200px;</code></pre>
+      <p>This means: grow if needed (1), don't shrink (0), base size 200px.</p>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>align-self</code></h2>
+      <p>Overrides <code>align-items</code> setting for individual flex items.</p>
+      <p>Accepts values like <code>auto</code>, <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>stretch</code>.</p>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2><code>gap</code> in Flexbox</h2>
+      <p>Defines spacing between flex items.</p>
+      <pre><code>gap: 20px;</code></pre>
+      <p>Adds 20px space between each item horizontally or vertically based on direction.</p>
+    </section>
+    <section class="slide" aria-live="polite" aria-atomic="true">
+      <h2>Conclusion</h2>
+      <ul>
+        <li>Flexbox is a powerful layout tool in CSS.</li>
+        <li>Understanding its properties and values is essential for modern web design.</li>
+        <li><strong>Questions?</strong></li>
+      </ul>
+    </section>
+  </div>
+  <nav class="controls" aria-label="Slide navigation">
+    <button id="prevBtn" aria-label="Previous slide" disabled>Previous</button>
+    <button id="nextBtn" aria-label="Next slide">Next</button>
+  </nav>
+
+  <script>
+    (function() {
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if(currentIndex > 0) {
+          currentIndex--;
+          showSlide(currentIndex);
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if(currentIndex < slides.length - 1) {
+          currentIndex++;
+          showSlide(currentIndex);
+        }
+      });
+
+      // Optional: keyboard navigation: left/right arrows
+      window.addEventListener('keydown', e => {
+        if(e.key === 'ArrowRight') {
+          if(currentIndex < slides.length - 1) {
+            currentIndex++;
+            showSlide(currentIndex);
+          }
+        } else if(e.key === 'ArrowLeft') {
+          if(currentIndex > 0) {
+            currentIndex--;
+            showSlide(currentIndex);
+          }
+        }
+      });
+
+      showSlide(currentIndex);
+    })();
+  </script>
+</body>
+</html>
+
